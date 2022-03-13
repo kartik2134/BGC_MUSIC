@@ -1,0 +1,92 @@
+{
+    "name": "GrooveMusicX",
+    "description": "Telegram bot for Streaming Video & Music trought the Telegram Group Video Chat, powered by PyTgCalls and Pyrogram",
+    "logo": "https://telegra.ph/file/1c41ded2dd871eb36bd7e.png",
+    "keywords": [
+        "live stream",
+        "music stream"
+    ],
+    "website": "https://t.me/adityaserver",
+    "repository": "https://github.com/kartik2134/BGC_MUSIC",
+    "success_url": "https://t.me/Shailendra34",
+    "env": {
+        "API_ID": {
+            "description": "your API_ID from my.telegram.org",
+            "required": true
+        },
+        "API_HASH": {
+            "description": "your API_HASH from my.telegram.org",
+            "required": true
+        },
+        "BOT_TOKEN": {
+            "description": "your bot token from @BotFather",
+            "required": true
+        },
+        "BOT_USERNAME": {
+            "description": "fill with your bot username from @BotFather but without using '@' symbol",
+            "required": true
+        },
+        "BOT_NAME": {
+            "description": "fill with your bot name from @BotFather",
+            "required": true
+        },
+        "STRING_SESSION": {
+            "description": "fill with the pyrogram String Session",
+            "required": true
+        },
+        "SUDO_USERS": {
+            "description": "list of user id to be added to sudo member list, or just fill with your id",
+            "required": true,
+            "value": "1323020756"
+        },
+        "HEROKU_API_KEY": {
+            "description": "Your Heroku account's API key",
+            "value": "",
+            "required": false   
+        }, 
+        "HEROKU_APP_NAME": {   
+            "description": "Your heroku app/bot's name",
+            "value": "",
+            "required": false
+        }, 
+        "UPSTREAM_REPO": {
+            "description": "If you dont know this, Leave as it is",
+            "value": "https://github.com/Shailendra34/Hero",
+            "required": false
+        },        
+        "GROUP_SUPPORT": {
+            "description": "if you have group, then fill the group username here without @",
+            "required": true,
+            "value": ""
+        },
+        "UPDATES_CHANNEL": {
+            "description": "if you have channel, then fill the channel username here without @",
+            "required": true,
+            "value": "HeroOfficialBots"
+        },
+        "OWNER_NAME": {
+            "description": "fill with your telegram account username without @",
+            "required": true,
+            "value": ""
+        }
+    },
+    "addons": [],
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        },
+        {
+            "url": "heroku/nodejs"
+        },
+        {
+            "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    },
+    "stack": "container"
+}

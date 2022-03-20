@@ -4,7 +4,7 @@ from pyrogram import Client, filters
 from modules.design.thumbnail import thumb
 from modules.clientbot.queues import QUEUE, clear_queue
 from modules.helpers.filters import command, other_filters
-from modules.helpers.decorators import authorized_users_only, sudo_users_only
+from modules.helpers.decorators import authorized_users_only
 from modules.clientbot.utils import skip_current_song, skip_item
 
 from config import BOT_USERNAME, GROUP_SUPPORT, IMG_5
@@ -18,7 +18,6 @@ from pyrogram.types import (
 
 @Client.on_message(command(["/reload", f"/reload@{BOT_USERNAME}"]) & other_filters)
 @authorized_users_only
-@sudo_users_only
 async def update_admin(client, message):
     global admins
     new_admins = []
@@ -33,7 +32,6 @@ async def update_admin(client, message):
 
 @Client.on_message(command(["Skip", "/skip", f"/skip@{BOT_USERNAME}", "/vskip"]) & other_filters)
 @authorized_users_only
-@sudo_users_only
 async def skip(c: Client, m: Message):
     await m.delete()
     user_id = m.from_user.id
@@ -90,7 +88,6 @@ async def skip(c: Client, m: Message):
     & other_filters
 )
 @authorized_users_only
-@sudo_users_only
 async def stop(client, m: Message):
     chat_id = m.chat.id
     if chat_id in QUEUE:
@@ -108,7 +105,6 @@ async def stop(client, m: Message):
     command(["Pause", "/pause", "/pause@{BOT_USERNAME}", "/vpause"]) & other_filters
 )
 @authorized_users_only
-@sudo_users_only
 async def pause(client, m: Message):
     chat_id = m.chat.id
     if chat_id in QUEUE:
@@ -127,7 +123,6 @@ async def pause(client, m: Message):
     command(["Resume", "/resume", "/resume@{BOT_USERNAME}", "/vresume"]) & other_filters
 )
 @authorized_users_only
-@sudo_users_only
 async def resume(client, m: Message):
     chat_id = m.chat.id
     if chat_id in QUEUE:
